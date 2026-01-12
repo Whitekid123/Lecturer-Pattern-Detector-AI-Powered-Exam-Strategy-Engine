@@ -1,0 +1,25 @@
+# Secrets (The most important part!)
+.env
+.env.txt
+
+# Python junk
+__pycache__/
+*.pyc
+
+# Virtual Environment (Don't upload the engine room)
+venv/
+.venv/
+env/
+
+# OS junk
+.DS_Store
+# Ignore Exam Data (Don't upload these!)
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.html
+*.htm
+
+# Ignore Virtual Environment
+venv/
