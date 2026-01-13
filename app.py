@@ -51,12 +51,16 @@ if analyze_clicked:
             for file in uploaded_files:
                 bytes_data = file.getvalue()
                 
-                # A. Images
+              # A. Images (Now with Auto-Resize!)
                 if file.type in ["image/jpeg", "image/png"]:
                     image = Image.open(io.BytesIO(bytes_data))
+                    
+                    # Resize if the image is massive (over 1024px)
+                    if image.width > 1024 or image.height > 1024:
+                        image.thumbnail((1024, 1024)) # Shrinks it while keeping quality
+                        
                     request_content.append(image)
                     request_content.append(f"Image filename: {file.name}")
-
                 # B. PDFs
                 elif file.type == "application/pdf":
                     with open(file.name, "wb") as f:
